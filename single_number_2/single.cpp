@@ -14,12 +14,10 @@ public:
       it = m.find(A[i]);
       if (it == m.end())
         m[A[i]] = FIRST;
-      else {
-        if (m[A[i]] == FIRST)
-          m[A[i]] = SECOND;
-        else if (m[A[i]] == SECOND)
-          m.erase(it);
-      }
+      else if (m[A[i]] == FIRST)
+        m[A[i]] = SECOND;
+      else if (m[A[i]] == SECOND)
+        m.erase(it);
     }
     return m.begin()->first;
   }
