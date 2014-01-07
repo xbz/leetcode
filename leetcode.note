@@ -1,0 +1,10 @@
+single_number
+a^a = 0
+
+single_number_2
+pattern:
+every number appears three times means for every bit(0th, 1st, 2nd), sum the nth bit of every element of array, the result is multiple of 3.
+
+permutations
+1. dfs
+2. swap
