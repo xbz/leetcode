@@ -27,3 +27,11 @@ add two numbers
   problem says: You are given two linked lists representing two non-negative numbers.
   i think non-negative number is unsigned int, it's wrong
 2. add directly: list2list
+
+add binary
+1 and 2 is same
+1.
+  sum += a[i]-'0';
+  i--;
+2.
+  sum += a[i--]-'0';
