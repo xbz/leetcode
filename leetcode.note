@@ -19,3 +19,11 @@ sizeof(int):      4
 sizeof(long):     8
 sizeof(long long):8
 
+add two numbers
+1. list2num, add num, num2list
+  1.1. using reverse leads to overflow
+  1.2. forget to process 0 to list: 0+0=0
+  1.3. misunderstanding
+  problem says: You are given two linked lists representing two non-negative numbers.
+  i think non-negative number is unsigned int, it's wrong
+2. add directly: list2list
