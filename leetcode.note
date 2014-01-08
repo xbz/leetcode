@@ -1,10 +1,21 @@
-single_number
+single number
 a^a = 0
 
-single_number_2
+single number 2
 pattern:
 every number appears three times means for every bit(0th, 1st, 2nd), sum the nth bit of every element of array, the result is multiple of 3.
 
 permutations
 1. dfs
 2. swap
+
+reverse integer
+1. overflow
+reverse 1000000009 or 2147483647(10 bits integer) will overflow
+2. no need to use vector
+using %10,/10 method, will get numbers in reverse order
+3. x86_64(Ubuntu)
+sizeof(int):      4
+sizeof(long):     8
+sizeof(long long):8
+
