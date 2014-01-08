@@ -10,10 +10,9 @@ public:
     ret = 0;
     for (i=0; i<32; i++) {
       int sum = 0;
-      for (j=0; j<n; j++) {
+      for (j=0; j<n; j++)
         sum += (A[j]>>i) & 1;
-      }
-      //printf("i:%d j:%d sum%%3:%d\n", i, j, sum%3);
+
       ret += (sum%3) << i;
     }
     return ret;
