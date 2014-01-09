@@ -35,3 +35,33 @@ add binary
   i--;
 2.
   sum += a[i--]-'0';
+
+twosum
+1. wrong submission:
+code:
+    vector<int> twoSum(vector<int> &numbers, int target) {
+      vector<int> v(numbers.begin(), numbers.end());
+      sort(v.begin(), v.end());
+      size_t i = 0;
+      size_t j = v.size() - 1;
+      while (i < j) {
+        if (v[i] + v[j] == target)
+          break;
+        else if (v[i] + v[j] < target)
+          ++i;
+        else
+          --j;
+      }
+      // here
+      int ind1 = find(numbers.begin(), numbers.end(), v[i]) - numbers.begin() + 1;
+      int ind2 = find(numbers.begin(), numbers.end(), v[j]) - numbers.begin() + 1;
+      vector<int> ret;
+      ret.push_back(min(ind1, ind2));
+      ret.push_back(max(ind1, ind2));
+      return ret;
+    }
+fail case: [0,4,3,0], 0
+on the failed case, ind1==ind2
+when there are same numbers in testcase, find(num1) and find(num2) return same pos(the number appears first)
+2. the unordered_map solution is wrong
+unordered_map fails on same number testcase([0,4,3,0], 0)
