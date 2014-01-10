@@ -65,3 +65,10 @@ on the failed case, ind1==ind2
 when there are same numbers in testcase, find(num1) and find(num2) return same pos(the number appears first)
 2. the unordered_map solution is wrong
 unordered_map fails on same number testcase([0,4,3,0], 0)
+
+plusone
+bug:
+problem requirement: compute n+1;
+program implement: n+1...1(example, n=123, 123+111)
+note:
+in additon, carry can be not 1. carry can be 5678, it can be absorbed along the addition.
