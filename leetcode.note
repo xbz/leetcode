@@ -72,3 +72,43 @@ problem requirement: compute n+1;
 program implement: n+1...1(example, n=123, 123+111)
 note:
 in additon, carry can be not 1. carry can be 5678, it can be absorbed along the addition.
+
+count and say
+using helper i,j
+11111222221
+i
+ j
+11111222221
+i
+     j
+11111222221
+     i
+     j
+11111222221
+     i
+      j
+11111222221
+     i
+          j
+11111222221
+          i
+          j
+11111222221
+          i
+           j
+11111222221
+           i
+           j
+string next(const string& s) {
+  ostringstream ss;
+  size_t i = 0;
+  while (i < s.size()) {
+    size_t j = i + 1;
+    while (j<s.size() && s[i]==s[j])
+      j++;
+    ss << j-i << s[i];
+    i = j;
+  }
+  return ss.str();
+}
+
