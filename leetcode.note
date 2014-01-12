@@ -112,3 +112,16 @@ string next(const string& s) {
   return ss.str();
 }
 
+pow(x,n)
+recursion
+when n>0(n is integer)
+x^n = x^(n/2) * x^(n/2) * x^(n%2)
+double overflow test case: 0.5^-1024
+in python
+>>> 0.5**-1023
+8.98846567431158e+307
+>>> 0.5**-1024
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+OverflowError: (34, 'Numerical result out of range')
+
