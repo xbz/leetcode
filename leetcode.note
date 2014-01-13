@@ -125,3 +125,21 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 OverflowError: (34, 'Numerical result out of range')
 
+multiply strings
+multiply two big numbers directly
+code:
+int len1 = int(num1.size());
+int len2 = int(num2.size());
+vector<int> ret(len1+len2, 0);
+for (int i=0; i<len1; i++) {
+  int carry = 0;
+  for (int j=0; j<len2; j++) {
+// sum = carry + a*b + value_exist
+// ret[i+j] is value_exist
+    int sum = carry + (num1[i]-'0')*(num2[j]-'0') + ret[i+j];
+    carry = sum/10;
+    ret[i+j] = sum%10;
+  }
+  ret[i+len2] = carry;
+}
+
