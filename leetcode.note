@@ -143,3 +143,15 @@ for (int i=0; i<len1; i++) {
   ret[i+len2] = carry;
 }
 
+sqrt
+1. use divider to prevent overflow
+if (x > mid*mid) // might be overflow
+if (x/mid > mid)
+2. int division will truncate
+if (mid == x/mid)
+  return mid;
+if x=11, mid=3, then x/mid=3(not 3.666...), then x/mid == mid
+but the statement is correct.
+x/mid = mid + delta // 0<=delta<1
+=> (mid+1)^2 > x
+and x/(mid-1) > mid+delta > mid-1

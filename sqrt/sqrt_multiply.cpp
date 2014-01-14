@@ -6,20 +6,21 @@ using namespace std;
 class Solution {
 public:
   int sqrt(int x) {
-    int min = 0;
-    int max = x;
     if (x <= 1)
       return x;
-    while (max-min > 1) {
-      int middle = int((min+max)/2);
-      if (middle == x/middle)
-        return middle;
-      else if (middle > x/middle)
-        max = middle;
+
+    long long low = 0;
+    long long high = x;
+    while (high-low > 1) {
+      long long mid = int((low+high)/2);
+      if (mid*mid == x)
+        return mid;
+      else if (mid*mid > x)
+        high = mid;
       else
-        min = middle;
+        low = mid;
     }
-    return min;
+    return low;
   }
 };
 
