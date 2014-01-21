@@ -1,5 +1,5 @@
 BIN= bin
-CFLAGS= -g -Wall
+CFLAGS= -g -Wall -std=c++0x
 CC= g++
 
 all: $(patsubst %.cpp,$(BIN)/%,$(wildcard *.cpp))
