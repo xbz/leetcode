@@ -155,3 +155,23 @@ but the statement is correct.
 x/mid = mid + delta // 0<=delta<1
 => (mid+1)^2 > x
 and x/(mid-1) > mid+delta > mid-1
+
+3sum
+Complexity: O(n^2)
+need rm duplicate answers
+{0, 0, 0, 0, 0, 0}
+ 0, 0, 0
+    0, 0, 0
+          0, 0, 0
+1. xbz method: pruning
+map<number, count> m
+1st, consider 0, if 0 appears >= 3 times, {0,0,0} is a solution, modify m[0]=1
+2nd, consider number n (not 0) appears >= 2 times, {n, n, -2n} can be a solution, find -2n in map, modify m[n]=1
+3rd, using 2sum
+2. better method
+using 2sum
+in loop consider duplicates
+  for (size_t i=0; i<num.size(); i++) {
+    if (i>0 && num[i]==num[i-1])
+      continue;
+
