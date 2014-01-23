@@ -5,7 +5,7 @@ using namespace std;
 class Solution {
 public:
   int removeDuplicates(int A[], int n) {
-    if (n == 0)
+    if (n <= 1)
       return n;
 
     int j = 1;

@@ -175,3 +175,10 @@ in loop consider duplicates
     if (i>0 && num[i]==num[i-1])
       continue;
 
+remove duplicates from sorted array
+1. 0 or 1 element array dont have duplicates.
+    if (n <= 1)
+      return n;
+2. process from the 2nd element
+j=1
+i=1
