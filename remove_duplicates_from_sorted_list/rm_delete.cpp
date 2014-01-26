@@ -14,6 +14,7 @@ public:
     if (head==NULL)
       return head;
 
+// one poniter solution
     ListNode *cur = head;
     while (cur->next != NULL) {
       if (cur->val == cur->next->val) {

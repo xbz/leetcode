@@ -198,3 +198,9 @@ compare i to j-1 and j-2
     A[j++] = A[i];
   }
 
+remove duplicates from sorted list
+1. bug
+if allocate memory when creating the list, don't forget free the memory(remove duplicates in place)
+2. one pointer method
+if cur->v != cur->next->v, walk one step
+if cur->v == cur->next->v, jump(set cur->next point to cur->next->next, delete cur->next)
