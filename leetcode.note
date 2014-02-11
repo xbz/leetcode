@@ -204,3 +204,24 @@ if allocate memory when creating the list, don't forget free the memory(remove d
 2. one pointer method
 if cur->v != cur->next->v, walk one step
 if cur->v == cur->next->v, jump(set cur->next point to cur->next->next, delete cur->next)
+
+remove duplicates from sorted list 2
+using preNode, curNode.
+  ListNode *deleteDuplicates(ListNode *head) {
+    ListNode *pre = new ListNode(0);
+    pre->next = head;
+    ListNode *ret = pre;
+    ListNode *cur = head;
+    while (cur) {
+      // skip all duplicate elements
+      while (cur->next!=NULL && cur->val==cur->next->val)
+        cur = cur->next;
+      if (pre->next == cur) // no duplicate elements
+        pre = cur;
+      else                  // duplicate elements from pre->next to cur
+        pre->next = cur->next;
+      cur = cur->next;
+    }
+    return ret->next;
+  }
+
