@@ -12,34 +12,19 @@ struct ListNode {
 class Solution {
 public:
   ListNode *deleteDuplicates(ListNode *head) {
-    if (head == NULL)
-      return head;
-
-    ListNode *ret = new ListNode(0);
-    ret->next = head;
+    ListNode *pre = new ListNode(0);
+    pre->next = head;
+    ListNode *ret = pre;
     ListNode *cur = head;
-    ListNode *pre = ret;
     while (cur) {
-      if (cur->next && cur->val!=cur->next->val) {
+      while (cur->next!=NULL && cur->val==cur->next->val)
+        cur = cur->next;
+      if (pre->next == cur)
         pre = cur;
-        cur = cur->next;
-        continue;
-      }
-
-      if (cur->next == NULL) {
-        pre->next = cur;
-        cur = cur->next;
-      } else {
-        int val = cur->val;
-        while (cur && cur->val==val) {
-          ListNode *del = cur;
-          cur = cur->next;
-          delete del;
-        }
-        pre->next = cur;
-      }
+      else
+        pre->next = cur->next;
+      cur = cur->next;
     }
-
     return ret->next;
   }
 };
@@ -64,7 +49,8 @@ ListNode *build_list(const vector<int>& v) {
 
 int main(int argc, char **argv)
 {
-  int arr[] = {1, 2, 2, 4, 6, 6, 8};
+  //int arr[] = {1, 2, 2, 4, 6, 6, 8};
+  int arr[] = {2, 1, 1};
   //int arr[] = {2, 2, 4, 6, 6, 8};
   int len = sizeof(arr) / sizeof(arr[0]);
   vector<int> v(arr, arr+len);
