@@ -11,8 +11,7 @@ public:
             return 0;
 
         double x = (sqrt(5)+1.0)/2.0;
-        double y = pow(x, n)/sqrt(5) + 0.5;
-        cout << y << endl;
+        double y = pow(x, n+1)/sqrt(5) + 0.5;
 
         return int(y);
     }
