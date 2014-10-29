@@ -9,8 +9,7 @@ public:
         string s;
         int magnitude = 1;
         while (num > 0) {
-            int value = num%10;
-            s = build(value, magnitude) + s;
+            s = build(num%10, magnitude) + s;
             num /= 10;
             magnitude *= 10;
         }
