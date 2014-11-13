@@ -2,6 +2,7 @@
 #include <vector>
 #include <stack>
 #include <map>
+#include <queue>
 
 using namespace std;
 
@@ -12,8 +13,13 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
-void print(const vector<int>& v)
-{
+void print(const map<string, int>& m) {
+    for (map<string, int>::const_iterator cit=m.begin();
+        cit!=m.end(); ++cit)
+        cout << cit->first << " " << cit->second << endl;
+}
+
+void print(const vector<int>& v) {
     vector<int>::size_type i;
     for (i=0; i<v.size()-1; i++)
         cout << v[i] << ' ';
@@ -24,6 +30,7 @@ class Solution {
 public:
     bool isSymmetric(TreeNode *root) {
         map<string, int> m = build_path_helper(root);
+        print(m);
         for (map<string, int>::const_iterator cit=m.begin();
             cit!=m.end(); ++cit) {
             string rkey = reverse(cit->first);
@@ -37,6 +44,33 @@ public:
     }
 private:
     map<string, int> build_path_helper(TreeNode *root) {
+        map<string, int> m;
+        if (!root)
+            return m;
+
+        typedef pair<TreeNode *, string> Node;
+        queue<Node> q;
+        string path;
+        q.push(make_pair(root, path));
+        while (!q.empty()) {
+            Node n = q.front();
+            q.pop();
+            TreeNode *left = n.first->left;
+            if (left) {
+                string path = n.second + "0";
+                q.push(make_pair(left, path));
+                m[path] = left->val;
+			}
+            TreeNode *right = n.first->right;
+            if (right) {
+                string path = n.second + "1";
+                q.push(make_pair(right, path));
+                m[path] = right->val;
+            }
+        }
+        return m;
+    }
+    map<string, int> build_path_helper_pre(TreeNode *root) {
         typedef pair<TreeNode *, string> ExtraNode;
         stack<ExtraNode> s;
         map<string, int> m;
@@ -86,10 +120,10 @@ int main(int argc, char *argv[])
     // TreeNode *t5 = new TreeNode(20);
     // t5->left = t3;
     // t5->right = t4;
-    TreeNode *t6 = new TreeNode(6);
-    t2->left = t6;
-    TreeNode *t7 = new TreeNode(6);
-    t1->left = t7;
+    // TreeNode *t6 = new TreeNode(6);
+    // t2->left = t6;
+    // TreeNode *t7 = new TreeNode(6);
+    // t1->left = t7;
     Solution s;
 
     bool isSymm = s.isSymmetric(t3);
