@@ -23,6 +23,20 @@ void print(const vector<int>& v)
 class Solution {
 public:
     bool isSymmetric(TreeNode *root) {
+        map<string, int> m = build_path_helper(root);
+        for (map<string, int>::const_iterator cit=m.begin();
+            cit!=m.end(); ++cit) {
+            string rkey = reverse(cit->first);
+            map<string, int>::const_iterator symit = m.find(rkey);
+            if (symit == m.end())
+                return false;
+            if (symit->second != cit->second)
+                return false;
+        }
+        return true;
+    }
+private:
+    map<string, int> build_path_helper(TreeNode *root) {
         typedef pair<TreeNode *, string> ExtraNode;
         stack<ExtraNode> s;
         map<string, int> m;
@@ -49,18 +63,8 @@ public:
                 m[path] = cur->val;
             }
         }
-        for (map<string, int>::const_iterator cit=m.begin();
-            cit!=m.end(); ++cit) {
-            string rkey = reverse(cit->first);
-            map<string, int>::const_iterator symit = m.find(rkey);
-            if (symit == m.end())
-                return false;
-            if (symit->second != cit->second)
-                return false;
-        }
-        return true;
+        return m;
     }
-private:
     string reverse(const string& s) {
         string ret;
         for (string::size_type i=0; i<s.length(); ++i)
