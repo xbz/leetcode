@@ -29,8 +29,6 @@ public:
 
         map<string, int> m1 = build_path_helper(p);
         map<string, int> m2 = build_path_helper(q);
-        print(m1);
-        print(m2);
         if (m1.size() != m2.size())
             return false;
 
@@ -55,15 +53,14 @@ private:
             Node n = q.front();
             q.pop();
             TreeNode *left = n.first->left;
-            string path = n.second;
             if (left) {
-                path += "0";
+                string path = n.second + "0";
                 q.push(make_pair(left, path));
                 m[path] = left->val;
             }
             TreeNode *right = n.first->right;
             if (right) {
-                path += "1";
+                string path = n.second + "1";
                 q.push(make_pair(right, path));
                 m[path] = right->val;
             }
