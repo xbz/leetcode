@@ -225,3 +225,9 @@ using preNode, curNode.
     return ret->next;
   }
 
+balanced-binary-tree
+at the beginning, not understand the meaning of this problem
+example:
+[1,2,3,4,5,6,#,7,8]
+h() // tree height
+compute the height of subtrees of: 1, 2, 3, 4
