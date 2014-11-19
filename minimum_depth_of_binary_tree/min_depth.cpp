@@ -24,15 +24,12 @@ public:
     int minDepth(TreeNode *root) {
         if (!root)
             return 0;
+        if (root->left && !root->right)
+            return minDepth(root->left) + 1;
+        if (!root->left && root->right)
+            return minDepth(root->right) + 1;
 
-        return min(depth(root->left), depth(root->right)) + 1;
-    }
-private:
-    int depth(TreeNode *root) {
-        if (!root)
-            return 0;
-
-        return max(depth(root->left), depth(root->right)) + 1;
+        return min(minDepth(root->left), minDepth(root->right)) + 1;
     }
 };
 
@@ -43,7 +40,7 @@ int main(int argc, char *argv[])
     TreeNode *t2 = new TreeNode(50);
     TreeNode *t3 = new TreeNode(15);
     t3->left = t1;
-    t3->right = t2;
+    // t3->right = t2;
     TreeNode *t4 = new TreeNode(50);
     TreeNode *t5 = new TreeNode(20);
     t5->left = t3;
@@ -54,6 +51,8 @@ int main(int argc, char *argv[])
     t1->right = t7;
     TreeNode *t8 = new TreeNode(100);
     t7->left = t8;
+    TreeNode *t9 = new TreeNode(7);
+    t1->left = t7;
     Solution s;
 
     int depth = s.minDepth(t3);
