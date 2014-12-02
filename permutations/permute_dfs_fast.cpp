@@ -14,30 +14,28 @@ void print(const vector<int>& v)
 
 class Solution {
 public:
-  void dfs(vector<vector<int> > &ret, vector<int> &num, vector<int> &path) {
-    if (path.size() == num.size()) {
+  vector<vector<int> > permute(vector<int> &num) {
+    vector<vector<int> > ret;
+    vector<int> path;
+    dfs(ret, num, path, num.size());
+    return ret;
+  }
+
+private:
+  void dfs(vector<vector<int> > &ret, vector<int> &num, vector<int> &path, size_t n) {
+    if (path.size() == n) {
       ret.push_back(path);
       return;
     }
 
     for (size_t i=0; i<num.size(); i++) {
-      // high algorithm complexity, guess O(n!)
-      vector<int>::iterator it = find(path.begin(), path.end(), num[i]);
-      cout << "call find" << endl;
-      if (it != path.end())
-        continue;
-
-      path.push_back(num[i]);
-      dfs(ret, num, path);
+      swap(num[0], num[i]);
+      vector<int> sub(num.begin()+1, num.end());
+      path.push_back(num[0]);
+      dfs(ret, sub, path, n);
       path.pop_back();
+      swap(num[0], num[i]);
     }
-  }
-
-  vector<vector<int> > permute(vector<int> &num) {
-    vector<vector<int> > ret;
-    vector<int> path;
-    dfs(ret, num, path);
-    return ret;
   }
 };
 
@@ -49,9 +47,7 @@ int main(int argc, char *argv[])
   v.push_back(2);
   v.push_back(3);
   v.push_back(4);
-  v.push_back(5);
-  v.push_back(6);
-  v.push_back(7);
+  //v.push_back(5);
   vector<vector<int> > ret = s.permute(v);
   cout << "size:" << ret.size() << endl;
   vector<vector<int> >::iterator it;
