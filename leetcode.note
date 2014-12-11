@@ -236,3 +236,8 @@ minimum_depth_of_binary_tree
 example:
 [1,2,#,3]
 root->right == NULL, so root->right is NOT a valid path, abandon
+
+best-time-to-buy-and-sell-stock
+1. prices.size()==0 or prices.size()==1, profit=0
+2. price = { 10, 5 }
+when doing transaction, profit always <0, don't do transaction.
