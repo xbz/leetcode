@@ -1,6 +1,6 @@
-single-number	leetcode,lintcode
-single-number-ii	leetcode,lintcode	fail
-single-number-iii	lintcode	fail
-excel-sheet-column-number	leetcode
-excel-sheet-column-title	leetcode	fail
-factorial-trailing-zeroes	leetcode	fail
+single-number	single-number
+single-number-ii	single-number-ii	fail
+-	single-number-iii	fail
+excel-sheet-column-number	-
+excel-sheet-column-title	-	fail
+factorial-trailing-zeroes	trailing-zeros		fail
