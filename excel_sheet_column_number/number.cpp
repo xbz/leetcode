@@ -18,6 +18,9 @@ int main(int argc, char *argv[])
 {
     Solution s;
     string str = "AAA";
+    if (argc == 2)
+        str = argv[1];
+
     int ret = s.titleToNumber(str);
     cout << ret << endl;
 

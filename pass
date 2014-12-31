@@ -1,4 +1,5 @@
-single-number	leet,lint
-single-number-ii	leet,lint	fail
-single-number-iii	lint	fail
-
+single-number	leetcode,lintcode
+single-number-ii	leetcode,lintcode	fail
+single-number-iii	lintcode	fail
+excel-sheet-column-number	leetcode
+excel-sheet-column-title	leetcode	fail

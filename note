@@ -13,3 +13,21 @@ every numbers occurs twice except two(x, y)
 ^ all number, get x^y
 find mask: the first different bit of x,y
 divide array into 2 groups using mask, every group change to single-number problem
+
+#excel-sheet-column-title
+1. (n-1)%26,(n-1)/26, NOT n%26,n/26
+2. c++ algorithm: reverse
+reverse return void
+template <class BidirectionalIterator>
+  void reverse (BidirectionalIterator first, BidirectionalIterator last);
+3. c++ std::string operator+
+std::operator+ (string)
+string operator+ (const string& lhs, char          rhs);
+string operator+ (char          lhs, const string& rhs);
+both are ok:
+  char   + string
+  strint + char
+code snippet:
+  string s;
+  s = char('A' + (n-1)%26) + s;
+
