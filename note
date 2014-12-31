@@ -31,3 +31,13 @@ code snippet:
   string s;
   s = char('A' + (n-1)%26) + s;
 
+#factorial-trailing-zeroes
+code snippet:
+integer overflow because using multiply(*), use divide(/) instead
+  int factor = 5;
+  int count = 0;
+  while (n > factor) {
+    count += n/factor;
+    factor *= 5;
+  }
+
