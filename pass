@@ -5,7 +5,8 @@ single-number-ii	single-number-ii	fail
 excel-sheet-column-number	-
 excel-sheet-column-title	-	fail
 factorial-trailing-zeroes	trailing-zeros		fail
+majority-element	majority-number	pass
 valid-parentheses	-	
 two-sum	2-sum	fail
-3sum	3-sum		
+3sum	3-sum	pass
 implement-strstr	strstr	fail

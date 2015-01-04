@@ -41,6 +41,11 @@ integer overflow because using multiply(*), use divide(/) instead
     factor *= 5;
   }
 
+#majority-element
+loop:
+  get 2 element, if not same, drop
+the remaining element is majority element.
+
 #valid-parentheses
 use stack
 
