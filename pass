@@ -11,3 +11,4 @@ two-sum	2-sum	fail
 3sum	3-sum	pass
 implement-strstr	strstr	fail
 3sum-closest	3-sum-closest	pass
+valid-sudoku	-	pass
