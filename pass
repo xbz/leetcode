@@ -6,4 +6,6 @@ excel-sheet-column-number	-
 excel-sheet-column-title	-	fail
 factorial-trailing-zeroes	trailing-zeros		fail
 valid-parentheses	-	
-two-sum				2-sum		fail
+two-sum	2-sum	fail
+3sum	3-sum		
+implement-strstr	strstr	fail

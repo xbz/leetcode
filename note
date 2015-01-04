@@ -57,3 +57,8 @@ use stack
 2. O(n) Space, O(n) Time
   use hashmap: C++ is unordered_map
 
+#implement-strstr
+should be:
+  pos <= limit
+not:
+  pos <  limit
