@@ -67,3 +67,9 @@ should be:
   pos <= limit
 not:
   pos <  limit
+
+#3sum-closest
+sum=a+b+c
+sum is closest to target
+similar to 3sum
+specify a, move b,c in opposite position
