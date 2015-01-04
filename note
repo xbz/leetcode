@@ -43,3 +43,17 @@ integer overflow because using multiply(*), use divide(/) instead
 
 #valid-parentheses
 use stack
+
+#two-sum
+1. O(1) Space, O(nlogn) Time
+  sort
+  find 2 values(move in opposite direction, O(n))
+  find index (bug: consider a==b)
+    a+b=target
+    if a==b:
+      ...
+    else:
+      ...
+2. O(n) Space, O(n) Time
+  use hashmap: C++ is unordered_map
+
