@@ -15,3 +15,5 @@ valid-sudoku	-	pass
 4sum	4-sum	fail
 compare-version-numbers	-	fail@4
 -	a-b-problem	pass
+permutations	permutations	pass
+permutations-ii	unique-permutations	fail@3

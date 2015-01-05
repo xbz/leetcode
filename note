@@ -83,3 +83,7 @@ bug info:
   1.0 == 1
 2. more than one '.'
   2.1.5.3 > 2.1
+
+#permutations-ii
+permutation + pruning
+pruning: rm duplicate siblings

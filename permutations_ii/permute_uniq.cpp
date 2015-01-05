@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <set>
 
 using namespace std;
 
@@ -15,8 +16,6 @@ void print(const vector<int>& v)
 class Solution {
 public:
     vector<vector<int> > permuteUnique(vector<int> &num) {
-        sort(num.begin(), num.end());
-
         vector<vector<int> > ret;
         permute_helper(ret, num, 0);
         return ret;
@@ -29,11 +28,11 @@ private:
             return;
         }
 
+        set<int> used;
         for (size_t i=pos; i<num.size(); i++) {
-            if (i!=pos && num[i]==num[pos])
+            if (used.find(num[i]) != used.end())
                 continue;
-            if (pos<i-1 && num[i]==num[i-1])
-                continue;
+            used.insert(num[i]);
 
             swap(num[pos], num[i]);
             permute_helper(ret, num, pos+1);
