@@ -73,3 +73,6 @@ sum=a+b+c
 sum is closest to target
 similar to 3sum
 specify a, move b,c in opposite position
+
+#4sum
+i, j, m, n: all 4 index should rm duplicates
