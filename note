@@ -76,3 +76,10 @@ specify a, move b,c in opposite position
 
 #4sum
 i, j, m, n: all 4 index should rm duplicates
+
+#compare-version-numbers
+bug info:
+1. tailing 0
+  1.0 == 1
+2. more than one '.'
+  2.1.5.3 > 2.1
