@@ -19,3 +19,4 @@ permutations	permutations	pass
 permutations-ii	unique-permutations	fail@3
 generate-parentheses	-	fail@3
 remove-nth-node-from-end-of-list	-	pass
+intersection-of-two-linked-lists	-	fail@4

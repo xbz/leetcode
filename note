@@ -104,3 +104,15 @@ one pass key:
 3 pointers: pre, cur, p
 pre's next is cur
 move p n steps first, than move pre and cur
+
+#intersection-of-two-linked-lists
+two linked list has intersection => two linked list has common part at tail
+i              j                   k
+* => * => * => * => * => * => * => *
+               * => * => * => * => *
+list1: i -> k
+list2: j -> k
+common part must within j -> k.
+so move forward list1's head to j,
+compare list1's head and list2's head iteratively
+ 

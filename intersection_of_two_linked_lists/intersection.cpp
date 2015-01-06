@@ -24,18 +24,36 @@ void print(const ListNode *head)
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        int lena = len(headA);
+        int lenb = len(headB);
 
+        int diff = abs(lena - lenb);
+        while (diff > 0) {
+            if (lena > lenb)
+                headA = headA->next;
+            else
+                headB = headB->next;
+            diff--;
+        }
+
+        while (headA && headB) {
+            if (headA == headB)
+                return headA;
+
+            headA = headA->next;
+            headB = headB->next;
+        }
+        return NULL;
     }
 
 private:
-    vector<ListNode *> build(ListNode *head) {
-        vector<ListNode *> ret;
-        ListNode *p = head;
-        while (p) {
-            ret.push_back(p);
-            p = p->next;
+    int len(ListNode *head) {
+        int n = 0;
+        while (head) {
+            n++;
+            head = head->next;
         }
-        return ret;
+        return n;
     }
 };
 
@@ -59,7 +77,7 @@ int main(int argc, char *argv[])
     ListNode *pb = headb;
     pb->next = new ListNode(5);
     pb = pb->next;
-    // pb->next = heada;
+    pb->next = heada;
     // p->next = q;
     print(headb);
 
