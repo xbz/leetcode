@@ -87,3 +87,14 @@ bug info:
 #permutations-ii
 permutation + pruning
 pruning: rm duplicate siblings
+
+#generate-parentheses
+1. pruning
+the situation "the left '(' > the left ')'" is invalid
+the situation: when used '(' == used ')', then choose a ')'
+if (left > right) return;
+2.
+if (left > 0)
+    helper(ret, s+'(', left-1, right);
+if (right > 0)
+    helper(ret, s+')', left, right-1);
