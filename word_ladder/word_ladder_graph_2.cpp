@@ -59,26 +59,23 @@ public:
             ++num;
         }
 
-        vector<Edge> vedge;
-        int vertex_num = vdict.size();
-        int edge_num = 0;
-        int **cost = new int* [vdict.size()];
-        for (size_t i=0; i!=vdict.size(); ++i) {
+        int** cost = new int* [vdict.size()];
+        for (size_t i=0; i<vdict.size(); ++i)
             cost[i] = new int[vdict.size()];
-            for (size_t j=0; j!=vdict.size(); ++j)
+        for (size_t i=0; i<vdict.size(); ++i) {
+            for (size_t j=0; j<vdict.size(); ++j)
                 cost[i][j] = INF;
         }
 
+        int vertex_num = vdict.size();
+        int edge_num = 0;
+        vector<Edge> vedge;
         for (int j=0; j<vertex_num; ++j) {
             for (int k=j+1; k<vertex_num; ++k) {
                 string str_j = m[j];
                 string str_k = m[k];
                 if (dist(str_j, str_k) == 1) {
                     ++edge_num;
-                    Edge e1(j, k);
-                    vedge.push_back(e1);
-                    Edge e2(k, j);
-                    vedge.push_back(e2);
                     cost[j][k] = 1;
                     cost[k][j] = 1;
                 }
@@ -96,13 +93,22 @@ public:
 
 private:
     void shortest_path_dijkstra(int source, vector<int> &d, int** cost) {
-        vector<int> used(d.size(), 0);
+        vector<int> used(d.size(), false);
 
         while (true) {
             int v = -1;
             for (size_t u=0; u<d.size(); ++u) {
-            
+                if (used[u])
+                    continue;
+                if (v==-1 || d[u]<d[v])
+                    v = u;
             }
+            if (v == -1)
+                break;
+            used[v] = true;
+
+            for (size_t u=0; u<d.size(); ++u)
+                d[u] = min(d[u], d[v]+cost[v][u]);
         }
     }
 

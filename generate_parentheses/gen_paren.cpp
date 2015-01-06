@@ -17,17 +17,18 @@ public:
         vector<string> ret;
         string s = string(n, '(') + string(n, ')');
         set<string> sret;
-        gen_helper(sret, s, 0);
+        gen_helper(sret, s, 0, 0);
         for (set<string>::iterator it=sret.begin(); it!=sret.end(); ++it)
             ret.push_back(*it);
         return ret;
     }
 
 private:
-    void gen_helper(set<string>& sret, string s, size_t pos) {
+    void gen_helper(set<string>& sret, string s, size_t pos, int left_count) {
         if (pos == s.size() - 1) {
-            if (valid(s))
-                sret.insert(s);
+            // if (valid(s))
+            //     sret.insert(s);
+            sret.insert(s);
             return;
         }
 
@@ -35,9 +36,22 @@ private:
             if (i!=pos && s[i]==s[pos])
                 continue;
 
+            if (left_count==0 && s[i]==')')
+                continue;
+
+            if (s[pos] == '(')
+                left_count++;
+            else if (s[pos] == ')')
+                left_count--;
+
             swap(s[i], s[pos]);
-            gen_helper(sret, s, pos+1);
+            gen_helper(sret, s, pos+1, left_count);
             swap(s[i], s[pos]);
+
+            if (s[pos] == '(')
+                left_count--;
+            else if (s[pos] == ')')
+                left_count++;
         }
     }
     bool valid(const string& s) {
