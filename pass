@@ -18,3 +18,4 @@ compare-version-numbers	-	fail@4
 permutations	permutations	pass
 permutations-ii	unique-permutations	fail@3
 generate-parentheses	-	fail@3
+remove-nth-node-from-end-of-list	-	pass

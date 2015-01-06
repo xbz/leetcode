@@ -98,3 +98,9 @@ if (left > 0)
     helper(ret, s+'(', left-1, right);
 if (right > 0)
     helper(ret, s+')', left, right-1);
+
+#remove-nth-node-from-end-of-list
+one pass key:
+3 pointers: pre, cur, p
+pre's next is cur
+move p n steps first, than move pre and cur
