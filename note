@@ -116,3 +116,5 @@ common part must within j -> k.
 so move forward list1's head to j,
 compare list1's head and list2's head iteratively
  
+#find-peak-element
+O(logN) algorithm, binary search
