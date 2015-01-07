@@ -118,3 +118,5 @@ compare list1's head and list2's head iteratively
  
 #find-peak-element
 O(logN) algorithm, binary search
+one pass:      O(N)
+binary search: O(logN)
