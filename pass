@@ -22,3 +22,4 @@ remove-nth-node-from-end-of-list	-	pass
 intersection-of-two-linked-lists	-	fail@4
 find-peak-element	find-a-peak	fail@2
 rotate-image	rotate-image	pass
+min-stack	min-stack	fail@21
