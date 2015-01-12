@@ -25,3 +25,4 @@ rotate-image	rotate-image	pass
 min-stack	min-stack	fail@21
 unique-paths	unique-paths	pass
 unique-paths-ii	unique-paths-ii fail@2
+minimum-path-sum	minimum-path-sum	pass
