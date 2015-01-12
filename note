@@ -180,3 +180,12 @@ state:      min path sum from 0,0 to x,y
 function:   f[x][y] = min(f[x-1][y], f[x][y-1]) + grid[i][j]
 initialize: f[0][0] = grid[0][0]
 answer:     f[m-1][n-1]
+
+#climbing-stairs
+DP/Sequence DP
+state:      f[x]: solution number from 1 to x
+function:   f[x] = f[x-1] + f[x-2]
+initialize: f[1] = 1
+            f[2] = 2
+answer:     f[n]
+
