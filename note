@@ -150,3 +150,10 @@ s2: min(rm duplicate)
   2 2
   3 3
   5 5
+
+#unique-paths
+DP/Matrix DP
+state:      path number from 0,0 to x,y
+function:   f[x][y] = f[x-1][y] + f[x][y-1]
+initialize: f[0][0] = 1
+answer:     f[n-1][m-1]
