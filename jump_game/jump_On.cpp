@@ -8,21 +8,15 @@ using namespace std;
 class Solution {
 public:
     bool canJump(int A[], int n) {
-        if (n <= 0)
-            return false;
+        int last = 0;
+        for (int i=0; i<n; ++i) {
+            if (last < i)
+                return false;
 
-        int f[n];
-        f[0] = 1;
-        for (int i=1; i<n; ++i) {
-            f[i] = 0;
-            for (int j=i-1; j>=0; j--) {
-                if (f[j]!=0 && j+A[j]>=i) {
-                    f[i] = 1;
-                    break;
-                }
-            }
+            if (i+A[i] > last)
+                last = i + A[i];
         }
-        return f[n-1];
+        return true;
     }
 };
 

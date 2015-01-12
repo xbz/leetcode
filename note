@@ -189,3 +189,7 @@ initialize: f[1] = 1
             f[2] = 2
 answer:     f[n]
 
+#jump-game
+O(n) solution: move i from 0 to n-1, move jump_longest
+DP
+using DP will generate TLE, should optimize
