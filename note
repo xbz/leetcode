@@ -193,3 +193,55 @@ answer:     f[n]
 O(n) solution: move i from 0 to n-1, move jump_longest
 DP
 using DP will generate TLE, should optimize
+
+#jump-game-ii
+O(n) solution
+  for (int i=0; i<n; ++i) {
+    // the farest pos min_step can reach is cur_max_reach,
+    // if i is larger than cur_max_reach => min_step can't reach i,
+    // need one more step
+    if (i > cur_max_reach) {
+      cur_max_reach = next_max_reach;
+      ++min_step;
+    }
+    next_max_reach = max(next_max_reach, i+A[i]);
+  }
+
+         i
+arr:   { 2,    4,    1,    2,    0,    2,    1,    2 }
+index:   0     1     2     3     4     5     6     7
+         cur         next
+               i
+arr:   { 2,    4,    1,    2,    0,    2,    1,    2 }
+index:   0     1     2     3     4     5     6     7
+                     cur               next
+                     i
+arr:   { 2,    4,    1,    2,    0,    2,    1,    2 }
+index:   0     1     2     3     4     5     6     7
+                     cur               next
+                           i
+arr:   { 2,    4,    1,    2,    0,    2,    1,    2 }
+index:   0     1     2     3     4     5     6     7
+                                       cur
+                                       next
+                                 i
+arr:   { 2,    4,    1,    2,    0,    2,    1,    2 }
+index:   0     1     2     3     4     5     6     7
+                                       cur
+                                       next
+                                       i
+arr:   { 2,    4,    1,    2,    0,    2,    1,    2 }
+index:   0     1     2     3     4     5     6     7
+                                       cur         next
+                                             i
+arr:   { 2,    4,    1,    2,    0,    2,    1,    2 }
+index:   0     1     2     3     4     5     6     7
+                                                   cur
+                                                   next
+                                             i
+arr:   { 2,    4,    1,    2,    0,    2,    1,    2 }
+index:   0     1     2     3     4     5     6     7    8    9
+                                                   cur       next
+
+
+
