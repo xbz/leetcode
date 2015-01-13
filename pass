@@ -29,3 +29,4 @@ minimum-path-sum	minimum-path-sum	pass
 climbing-stairs	climbing-stairs	pass
 jump-game	jump-game	fail@2
 jump-game-ii	jump-game-ii	fail@3
+palindrome-partitioning	palindrome-partitioning	pass
