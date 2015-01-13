@@ -26,7 +26,7 @@ public:
 int main(int argc, char *argv[])
 {
     Solution s;
-    int arr[] = { 2, 3, 1, 2, 3, 4 };
+    int arr[] = { 2, 4, 1, 2, 0, 2, 1, 2 };
     // int arr[] = { 2 };
 
     int arrlen = sizeof(arr) / sizeof(arr[0]);
