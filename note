@@ -247,3 +247,22 @@ index:   0     1     2     3     4     5     6     7    8    9
 dfs
 dfs method more concise
 dfs template need more exercise
+
+#palindrome-partitioning-ii
+DP/Sequence DP
+state:      f[i]: the minimum cut numbers the string need. (the string build from the first i chars)
+function:   f[i] = min(f[j] + 1, j<i&&substr[j+1,i] is palindrome)
+initialize: f[i] = i - 1 (f[0] = -1)
+answer:     f[s.size()]
+using 2 dp
+  // string s, n = s.size()
+  // dp 1
+  // f[i] = min(f[j] + 1, j<i&&substr[j+1,i] is palindrome)
+  int f[n+1];
+  f[0] = -1;
+  // dp 2
+  // palin[i][j] = false: substring [i,j] is NOT palindrome
+  // palin[i][j] = true:  substring [i,j] is     palindrome
+  bool palin[n][n];
+  // the first i chars, at most cut to i parts, one char per part, use i-1 cuts
+  f[i] = i - 1;

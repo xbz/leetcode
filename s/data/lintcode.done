@@ -8,6 +8,7 @@ climbing-stairs
 digit-counts
 find-a-peak
 implement-queue-by-stacks
+jump-game
 jump-game-ii
 k-sum
 majority-number
@@ -15,6 +16,7 @@ majority-number-ii
 minimum-path-sum
 min-stack
 palindrome-partitioning
+palindrome-partitioning-ii
 partition-array
 permutations
 recover-rotated-sorted-array
