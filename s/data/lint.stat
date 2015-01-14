@@ -1,0 +1,6 @@
+#!/bin/bash
+
+ls -d ~/project/lintcode/*/ | sed 's"/home/jiemw/project/lintcode/""g' | sed 's/_/-/g' | sed 's"/""g' | sort >lintcode.done
+
+comm -12 lintcode.done lintcode.uniq.out
+

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+awk '{
+    t+=$2
+    done+=$3
+    v=$2-$3
+    left+=v
+    printf("%s %s %s %s %.1f%%\n",$1,$2,$3,v,$3*100/$2)
+}
+END {
+    printf("- %s %s %s %.1f%%\n",t,done,left,done*100/t)
+}' info | column -t
