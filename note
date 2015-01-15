@@ -311,6 +311,6 @@ sum = A[i] + ... + A[j], if sum<0, no help to the following sequence, reset sum=
       if (sum < 0)
           sum = 0;
   }
-todo: divide & conquer method
+todo: divide & conquer method. http://www.geeksforgeeks.org/divide-and-conquer-maximum-sum-subarray/
 todo: Prefix Sum method. http://www.ninechapter.com/solutions/maximum-subarray/
 todo: Kadane's Algorithm
