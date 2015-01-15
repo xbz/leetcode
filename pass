@@ -32,3 +32,4 @@ jump-game-ii	jump-game-ii	fail@3
 palindrome-partitioning	palindrome-partitioning	pass
 palindrome-partitioning-ii	palindrome-partitioning-ii	fail@3
 word-break	word-segmentation	pass@leet,fail@lint
+maximum-subarray	maximum-subarray	fail@2

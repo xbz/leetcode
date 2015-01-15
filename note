@@ -286,3 +286,31 @@ answer:     f[s.size()]
           }
       }
   }
+
+#maximum-subarray
+Sol1:
+DP/Sequence DP???
+state:      f[i]: max-subarray for the first i+1 chars
+            g[i]: max-subarray for the first i+1 chars, including char A[i]
+function:   f[i] = max(f[i-1], g[i])
+initialize: f[0] = A[0]
+            g[0] = A[0]
+answer:     f[n-1]
+f[i] = max(f[i-1], g[i])
+  after add A[i]
+  if max-subarray not including A[i], result is f[i-1]
+  if max-subarray     including A[i], result is g[i]
+Sol2: sliding window
+property: if a1, a2, ..., an is maximum subarray, then a1>0 and an>0
+sum = A[i] + ... + A[j], if sum<0, no help to the following sequence, reset sum=0 and start again
+  int sum = 0;
+  int max_subarr = INT_MIN;
+  for (int i=0; i<n; ++i) {
+      sum += A[i];
+      max_subarr = max(max_subarr, sum);
+      if (sum < 0)
+          sum = 0;
+  }
+todo: divide & conquer method
+todo: Prefix Sum method. http://www.ninechapter.com/solutions/maximum-subarray/
+todo: Kadane's Algorithm

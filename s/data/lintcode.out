@@ -85,6 +85,7 @@ min-stack
 next-permuation
 n-queens
 n-queens-ii
+nth-to-last-node-in-list
 number-triangle
 o1-check-power-of-2
 palindrome-partitioning
@@ -102,6 +103,7 @@ remove-duplicates-from-sorted-array-ii
 remove-duplicates-from-sorted-list
 remove-duplicates-from-sorted-list-ii
 remove-node-in-binary-search-tree
+remove-nth-node-from-end-of-list
 reorder-list
 reverse-linked-list
 reverse-linked-list-ii
