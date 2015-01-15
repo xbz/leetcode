@@ -266,3 +266,23 @@ using 2 dp
   bool palin[n][n];
   // the first i chars, at most cut to i parts, one char per part, use i-1 cuts
   f[i] = i - 1;
+
+#word-break
+DP/Sequence DP
+state:      f[i]: is true when the first i chars can do word break
+function:   f[i] = OR(f[j] && substr[j,i-1] in dict, j<i)
+initialize: f[0] = true
+answer:     f[s.size()]
+2 optimization:
+1. if there has a char C in s, but C doesn't appear in dict, return false
+2. (for lintcode only)inner loop: descending j is faster than ascending j???
+  for (size_t i=1; i<=s.size(); ++i) {
+      f[i] = false;
+      for (size_t j=0; j<i; ++j) {
+          string sub = s.substr(j, i-j);
+          if (f[j] && dict.find(sub)!=dict.end() && !f[i]) {
+              f[i] = true;
+              break;
+          }
+      }
+  }

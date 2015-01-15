@@ -14,8 +14,10 @@ public:
             f[i] = false;
             for (size_t j=0; j<i; ++j) {
                 string sub = s.substr(j, i-j);
-                if (f[j] && dict.find(sub)!=dict.end() && !f[i])
+                if (f[j] && dict.find(sub)!=dict.end() && !f[i]) {
                     f[i] = true;
+                    break;
+                }
             }
         }
         return f[s.size()];
