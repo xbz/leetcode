@@ -34,3 +34,4 @@ palindrome-partitioning-ii	palindrome-partitioning-ii	fail@3
 word-break	word-segmentation	pass@leet,fail@lint
 maximum-subarray	maximum-subarray	fail@2
 -	maximum-subarray-ii	pass
+-	minimum-subarray	pass

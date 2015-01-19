@@ -5,8 +5,10 @@
 a-b-problem
 backpack
 backpack-ii
+binary-representation
 binary-search
 compare-strings
+delete-digits
 digit-counts
 fast-power
 find-a-peak
@@ -31,7 +33,6 @@ majority-number-ii
 majority-number-iii
 maximum-subarray-difference
 maximum-subarray-ii
-maximum-subarray-iii
 max-tree
 median
 median-ii

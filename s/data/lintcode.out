@@ -10,6 +10,7 @@ balanced-binary-tree
 best-time-to-buy-and-sell-stock
 best-time-to-buy-and-sell-stock-ii
 best-time-to-buy-and-sell-stock-iii
+binary-representation
 binary-search
 binary-tree-inorder-traversal
 binary-tree-level-order-traversal
@@ -28,6 +29,7 @@ construct-binary-tree-from-inorder-and-postorder-traversal
 construct-binary-tree-from-preorder-and-inorder-traversal
 convert-sorted-list-to-binary-search-tree
 copy-list-with-random-pointer
+delete-digits
 digit-counts
 distinct-subsequences
 edit-distance
@@ -67,7 +69,6 @@ maximum-depth-of-binary-tree
 maximum-subarray
 maximum-subarray-difference
 maximum-subarray-ii
-maximum-subarray-iii
 max-tree
 median
 median-ii
@@ -102,6 +103,7 @@ remove-duplicates-from-sorted-array
 remove-duplicates-from-sorted-array-ii
 remove-duplicates-from-sorted-list
 remove-duplicates-from-sorted-list-ii
+remove-element
 remove-node-in-binary-search-tree
 remove-nth-node-from-end-of-list
 reorder-list

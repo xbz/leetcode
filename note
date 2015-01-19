@@ -290,8 +290,8 @@ answer:     f[s.size()]
 #maximum-subarray
 Sol1:
 DP/Sequence DP???
-state:      f[i]: max-subarray for the first i+1 chars
-            g[i]: max-subarray for the first i+1 chars, including char A[i]
+state:      f[i]: max-subarray for the first i+1 chars(forward direction)
+            g[i]: max-subarray for the first i+1 chars(reverse direction), from char A[i], continous
 function:   f[i] = max(f[i-1], g[i])
 initialize: f[0] = A[0]
             g[0] = A[0]
@@ -321,3 +321,14 @@ Given an array of integers, find two non-overlapping subarrays which have the la
 key: convret maximum-subarray-ii => maximum-subarray
 divide the original array to two subarrays: a1, a2. compute a1,a2's maximum-subarray, add the results get sum1.
 result = max(sum1, sum2, ..., sum_n-1)
+
+#minimum-subarray
+DP/Sequence DP???
+state:      f[i]: min-subarray for the first i+1 chars(forward direction)
+            g[i]: min-subarray for the first i+1 chars(reverse direction), from char A[i], continous
+
+function:   g[i] = min(g[i-1]+A[i], A[i])
+            f[i] = min(f[i-1], g[i])
+initialize: f[0] = A[0]
+            g[0] = A[0]
+answer:     f[n-1]
