@@ -326,9 +326,17 @@ result = max(sum1, sum2, ..., sum_n-1)
 DP/Sequence DP???
 state:      f[i]: min-subarray for the first i+1 chars(forward direction)
             g[i]: min-subarray for the first i+1 chars(reverse direction), from char A[i], continous
-
 function:   g[i] = min(g[i-1]+A[i], A[i])
             f[i] = min(f[i-1], g[i])
 initialize: f[0] = A[0]
             g[0] = A[0]
 answer:     f[n-1]
+
+#decode-ways
+DP/Sequence DP
+state:      f[i]: decode ways for the first i chars
+function:   f[i] = 0
+            f[i] += f[i-1] if the current char can decode seperately(current char is not '0')
+            f[i] += f[i-2] if previous char and current char can composite(prev+current in [10, 26])
+initialize: f[0] = 1
+answer:     f[n]
