@@ -36,3 +36,4 @@ maximum-subarray	maximum-subarray	fail@2
 -	maximum-subarray-ii	pass
 -	minimum-subarray	pass
 decode-ways	-	fail@7
+-	maximum-subarray-difference	pass

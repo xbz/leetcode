@@ -318,7 +318,7 @@ todo: Kadane's Algorithm
 #maximum-subarray-ii
 DP/Sequence DP???
 Given an array of integers, find two non-overlapping subarrays which have the largest sum.
-key: convret maximum-subarray-ii => maximum-subarray
+key: convert maximum-subarray-ii => maximum-subarray
 divide the original array to two subarrays: a1, a2. compute a1,a2's maximum-subarray, add the results get sum1.
 result = max(sum1, sum2, ..., sum_n-1)
 
@@ -333,6 +333,7 @@ initialize: f[0] = A[0]
 answer:     f[n-1]
 
 #decode-ways
+think clear before programming. Do NOT while thinking, while programming, while modifying.
 DP/Sequence DP
 state:      f[i]: decode ways for the first i chars
 function:   f[i] = 0
@@ -340,3 +341,12 @@ function:   f[i] = 0
             f[i] += f[i-2] if previous char and current char can composite(prev+current in [10, 26])
 initialize: f[0] = 1
 answer:     f[n]
+
+#maximum-subarray-difference
+DP/Sequence DP
+key: convert maximum-subarray-difference => maximum-subarray + minimum-subarray
+<-           seq           ->
+<- seq1   -><-     seq2    ->
+divide seq into seq1 and seq2, compute diff1 = |maxsub(seq1)-minsub(seq2)| and
+                                     diff2 = |maxsub(seq2)-minsub(seq1)|
+max(diff1, diff2) is max-diff of this divide, len(seq1) from 1 to n-1
