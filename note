@@ -350,3 +350,11 @@ key: convert maximum-subarray-difference => maximum-subarray + minimum-subarray
 divide seq into seq1 and seq2, compute diff1 = |maxsub(seq1)-minsub(seq2)| and
                                      diff2 = |maxsub(seq2)-minsub(seq1)|
 max(diff1, diff2) is max-diff of this divide, len(seq1) from 1 to n-1
+
+#unique-binary-search-trees
+DP/Sequence DP
+state:      f[i]: unique binary search trees for the first i numbers([1, i])
+function:   f[i] = f[0]*f[i-1] + f[1]*f[i-2] + ... + f[i-1]*f[0]
+                   left*right    left*right          left  *right
+initialize: f[0] = 1
+answer:     f[n]
