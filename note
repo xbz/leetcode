@@ -358,3 +358,9 @@ function:   f[i] = f[0]*f[i-1] + f[1]*f[i-2] + ... + f[i-1]*f[0]
                    left*right    left*right          left  *right
 initialize: f[0] = 1
 answer:     f[n]
+
+#convert-sorted-list-to-binary-search-tree
+recursion
+using index is simpler than using vector, because using vector you need to create two temporary vector in every recursive call.
+method 1: using vector
+method 2: using index
