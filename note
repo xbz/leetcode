@@ -364,3 +364,10 @@ recursion
 using index is simpler than using vector, because using vector you need to create two temporary vector in every recursive call.
 method 1: using vector
 method 2: using index
+
+#fizz-buzz
+simple problem
+C++ std::to_string (C++11)
+  string to_string (int val);
+  Convert numerical value to string
+  Returns a string with the representation of val.

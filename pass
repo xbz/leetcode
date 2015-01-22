@@ -39,3 +39,4 @@ decode-ways	-	fail@7
 -	maximum-subarray-difference	pass
 unique-binary-search-trees	unique-binary-search-trees	pass
 convert-sorted-array-to-binary-search-tree	-	pass
+-	fizz-buzz	pass
