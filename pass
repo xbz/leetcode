@@ -40,3 +40,4 @@ decode-ways	-	fail@7
 unique-binary-search-trees	unique-binary-search-trees	pass
 convert-sorted-array-to-binary-search-tree	-	pass
 -	fizz-buzz	pass
+-	subarray-sum	pass	look-answer

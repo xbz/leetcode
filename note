@@ -371,3 +371,18 @@ C++ std::to_string (C++11)
   string to_string (int val);
   Convert numerical value to string
   Returns a string with the representation of val.
+
+#subarray-sum
+not DP
+a1, a2, ...                 an
+a1, a2, ... ai, ... aj, ... an
+if sum[ai, aj] is zero, then sum[a1, ai-1] == sum[a1, aj]
+because
+sum[a1, aj] == sum[a1, ai-1] + sum[ai, aj]
+            == sum[a1, ai-1]
+have to consider when ai is a1.
+1. ai is a1
+2. ai is not a1
+triky solution:
+define a virtual node <0, -1>
+
