@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    void reverseWords(string &s) {
+    void reverseWords2(string &s) {
         vector<string> v;
         istringstream iss(s);
         string word;
@@ -23,6 +23,17 @@ public:
         }
         s = ret;
     }
+
+    void reverseWords(string &s) {
+        istringstream iss(s);
+        string word;
+        string ret;
+        if (iss >> word)
+            ret = word;
+        while (iss >> word)
+            ret = word + " " + ret;
+        s = ret;
+    }
 };
 
 int main(int argc, char *argv[])
@@ -31,7 +42,8 @@ int main(int argc, char *argv[])
     string str = "     hi!               my test here.    ";
     cout << str << endl;
     s.reverseWords(str);
-    cout << str << endl;
+    // s.reverseWords2(str);
+    cout << str << "$" << endl;
 
     return 0;
 }
