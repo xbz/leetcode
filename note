@@ -386,3 +386,9 @@ have to consider when ai is a1.
 triky solution:
 define a virtual node <0, -1>
 
+#reverse-words-in-a-string
+3 steps
+1. split to words
+2. reverse list
+3. ' '.join(list)
+todo: solve it in-place in O(1) space in C.

@@ -17,8 +17,7 @@ public:
         string ret;
         vector<string>::reverse_iterator rit = v.rbegin();
         while (rit!=v.rend()) {
-        	ret += *rit;
-        	++rit;
+        	ret += *rit++;
         	if (rit != v.rend())
         		ret += ' ';
         }
