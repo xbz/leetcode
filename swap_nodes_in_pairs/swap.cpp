@@ -88,8 +88,8 @@ public:
 
 void print(ListNode *head) {
     while (head) {
-            cout << head->val << " ";
-            head = head->next;
+        cout << head->val << " ";
+        head = head->next;
     }
     cout << endl;
 }
