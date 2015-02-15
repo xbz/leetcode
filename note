@@ -393,3 +393,17 @@ define a virtual node <0, -1>
 3. ' '.join(list)
 todo: solve it in-place in O(1) space in C.
 todo: solve it in-place in O(1) space in C++.
+
+#swap-nodes-in-pairs
+1. remember using dummy node
+cur --> next --> nextnext --> nextnextnext
+
+         --------------------------
+         |                        ||
+         |                        \/
+cur     next <-- nextnext     nextnextnext
+ |                  /\ 
+ |                  ||
+ ---------------------
+if there exist 2 nodes after cur, swap the following 2 nodes, make cur point to nextnext.
+then move cur forward 2 steps.

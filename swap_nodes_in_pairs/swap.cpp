@@ -11,7 +11,25 @@ struct ListNode {
 
 class Solution {
 public:
+    // add dummy node(better version)
     ListNode *swapPairs(ListNode *head) {
+        ListNode dummy(0);
+        dummy.next = head;
+
+        for (ListNode *cur=&dummy;
+             cur->next!=NULL&&cur->next->next!=NULL;
+             cur=cur->next->next)
+			cur->next = swap(cur->next, cur->next->next);
+
+        return dummy.next;
+    }
+    ListNode *swap(ListNode *cur, ListNode *next) {
+        cur->next = next->next;
+        next->next = cur;
+        return next;
+    }
+
+    ListNode *swapPairs_orig(ListNode *head) {
         if (head==NULL || head->next==NULL)
             return head;
 
@@ -50,23 +68,6 @@ public:
             cur = cur->next;
         }
         return dummy.next;
-    }
-
-    // add dummy node(better version)
-    ListNode *swapPairs_dummy2(ListNode *head) {
-        ListNode dummy(0);
-        dummy.next = head;
-        ListNode *cur = &dummy;
-        while (cur->next!=NULL && cur->next->next!=NULL) {
-            cur->next = swap(cur->next, cur->next->next);
-            cur = cur->next->next;
-        }
-        return dummy.next;
-    }
-    ListNode *swap(ListNode *p1, ListNode *p2) {
-        p1->next = p2->next;
-        p2->next = p1;
-        return p2;
     }
 
     ListNode *swapPairs_recursive(ListNode *head) {
@@ -113,7 +114,7 @@ int main(int argc, char **argv)
 
     print(p);
     Solution sol;
-    ListNode *new_list = sol.swapPairs_dummy2(p);
+    ListNode *new_list = sol.swapPairs(p);
     print(new_list);
 
     return 0;
