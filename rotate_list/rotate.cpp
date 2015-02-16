@@ -21,14 +21,19 @@ public:
         dummy.next = head;
         ListNode *fast = &dummy;
         ListNode *slow = &dummy;
-        int i = 0;
-        for (; i<k; ++i) {
-            if (fast == NULL)
+        for (int i=0; i<k; ++i) {
+            if (fast->next == NULL) {
                 fast = &dummy;
+                k = k % i;
+                for (int i=0; i<k; ++i)
+                    fast = fast->next;
+                break;
+            }
             fast = fast->next;
         }
 
-        if (fast == NULL)
+        // k%len == 0
+        if (fast->next == NULL)
             return head;
         while (fast->next != NULL) {
             fast = fast->next;
@@ -47,24 +52,23 @@ public:
         if (head==NULL || head->next==NULL)
             return head;
 
+        ListNode dummy(0);
+        dummy.next = head;
+
         int len = 0;
         ListNode *last = NULL;
-        ListNode *cur = head;
-        while (cur != NULL) {
+        while (head != NULL) {
             len += 1;
-            last = cur;
-            cur = cur->next;
+            last = head;
+            head = head->next;
         }
 
         int n = k % len;
         if (n == 0)
-            return head;
+            return dummy.next;
 
-        int step = len - n;
-        ListNode dummy(0);
-        dummy.next = head;
         ListNode *split = &dummy;
-        while (split!=NULL && step-->0)
+        for (int i=0; i<len-n; ++i)
             split = split->next;
 
         last->next = dummy.next;
@@ -94,7 +98,7 @@ ListNode *build_list(const vector<int>& v) {
 
 int main(int argc, char **argv)
 {
-    int arr[] = {1, 3, 5, 7, 9, 11};
+    int arr[] = {1, 3, 5, 7};
     //int arr[] = {2, 2, 4, 6, 6, 8};
     int len = sizeof(arr) / sizeof(arr[0]);
     vector<int> v(arr, arr+len);
@@ -102,7 +106,10 @@ int main(int argc, char **argv)
 
     print(p);
     Solution sol;
-    int n = 6;
+    int n = 2;
+    if (argc == 2)
+        n = atoi(argv[1]);
+
     ListNode *new_list = sol.rotateRight(p, n);
     print(new_list);
 

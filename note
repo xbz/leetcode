@@ -407,3 +407,15 @@ cur     next <-- nextnext     nextnextnext
  ---------------------
 if there exist 2 nodes after cur, swap the following 2 nodes, make cur point to nextnext.
 then move cur forward 2 steps.
+
+#rotate-list
+HEAD => a1 => a2 => ... => ax => ay => ... => an-1 => an => NULL
+        ------------------------------------------------------------------
+        ||                                                               |
+        \/                                                               |
+        a1 => a2 => ... => ax => NULL   NEW_HEAD => ay => ... => an-1 => an 
+find the new end
+new head: new end's next
+link previous an's next to a1
+1. simple solution
+2. better solution

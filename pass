@@ -43,3 +43,4 @@ convert-sorted-array-to-binary-search-tree	-	pass
 -	subarray-sum	pass	look-answer
 reverse-words-in-a-string	reverse-words-in-a-string	pass
 swap-nodes-in-pairs	-	pass
+rotate-list	rotate-list	pass
