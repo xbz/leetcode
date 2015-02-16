@@ -397,7 +397,6 @@ todo: solve it in-place in O(1) space in C++.
 #swap-nodes-in-pairs
 1. remember using dummy node
 cur --> next --> nextnext --> nextnextnext
-
          --------------------------
          |                        ||
          |                        \/
@@ -410,12 +409,19 @@ then move cur forward 2 steps.
 
 #rotate-list
 HEAD => a1 => a2 => ... => ax => ay => ... => an-1 => an => NULL
-        ------------------------------------------------------------------
-        ||                                                               |
-        \/                                                               |
-        a1 => a2 => ... => ax => NULL   NEW_HEAD => ay => ... => an-1 => an 
-find the new end
-new head: new end's next
-link previous an's next to a1
+        --------------------------------------------------------
+        ||                                                     |
+        ||                NULL       NEW_HEAD                  |
+        ||                 /\           ||                     |
+        \/                 ||           \/                     |
+        a1 => a2 => ... => ax           ay => ... => a_n-1 => a_n 
+find the new end => new head: new end's next
+link a_n's next to a1
 1. simple solution
-2. better solution
+  first pass: compute list_len, get pointer that points to a_n
+  newk = k % list_len
+  second pass: step forward list_len-newk steps from a1
+2. fast-slow pointer solution
+  two pointers: fast, slow. both point to dummy.
+  fast: step forward k steps(if fast reach end, recompute k, move fast from dummy)
+  step forward fast and slow simultaneously, until fast foint to a_n
