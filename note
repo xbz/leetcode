@@ -414,7 +414,7 @@ HEAD => a1 => a2 => ... => ax => ay => ... => an-1 => an => NULL
         ||                NULL       NEW_HEAD                  |
         ||                 /\           ||                     |
         \/                 ||           \/                     |
-        a1 => a2 => ... => ax           ay => ... => a_n-1 => a_n 
+        a1 => a2 => ... => ax           ay => ... => a_n-1 => a_n
 find the new end => new head: new end's next
 link a_n's next to a1
 1. simple solution
@@ -425,3 +425,14 @@ link a_n's next to a1
   two pointers: fast, slow. both point to dummy.
   fast: step forward k steps(if fast reach end, recompute k, move fast from dummy)
   step forward fast and slow simultaneously, until fast foint to a_n
+
+#insertion-sort-list
+1. better solution: using two lists
+only insert node(dont need delete node)
+l1: empty at the beginning
+l2: the whole list
+from l2 build l1
+for node in l2:
+  insert node into l1(proper position)
+2. normal solution: using one list
+delete node and insert the deleted node
