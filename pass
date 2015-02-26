@@ -45,3 +45,6 @@ reverse-words-in-a-string	reverse-words-in-a-string	pass
 swap-nodes-in-pairs	-	pass
 rotate-list	rotate-list	pass
 insertion-sort-list	-	pass
+-	reverse-linked-list	pass
+reverse-linked-list-ii	reverse-linked-list-ii fail@2
+

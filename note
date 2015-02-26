@@ -436,3 +436,9 @@ for node in l2:
   insert node into l1(proper position)
 2. normal solution: using one list
 delete node and insert the deleted node
+
+#reverse-linked-list-ii
+init: let pre point to dummy
+let pre point to a_n(move pre forward m-1 steps)
+loop: add one node to reverse sequence(iterate n-m times)
+
