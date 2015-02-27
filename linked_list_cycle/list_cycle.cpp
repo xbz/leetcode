@@ -21,6 +21,22 @@ void print(const ListNode *head)
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
+        if (head == NULL)
+            return false;
+
+        ListNode *fast = head->next;
+        ListNode *slow = head;
+        while (fast != slow) {
+            if (fast==NULL || fast->next==NULL)
+                return false;
+
+            fast = fast->next->next;
+            slow = slow->next;
+        }
+        return true;
+    }
+
+    bool hasCycle_orig(ListNode *head) {
         if (!head)
             return false;
         set<ListNode *> s;
@@ -45,8 +61,8 @@ int main(int argc, char *argv[])
     ListNode *q = p;
     p->next = new ListNode(70);
     p = p->next;
-    // p->next = q;
-    print(head);
+    p->next = q;
+    // print(head);
 
     bool bCycle = s.hasCycle(head);
     cout << "has cycle:" << bCycle << endl;
