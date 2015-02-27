@@ -22,6 +22,30 @@ void print(const ListNode *head)
 class Solution {
 public:
     ListNode *partition(ListNode *head, int x) {
+        if (head == NULL)
+            return head;
+
+        ListNode dummy_small(0);
+        ListNode *small = &dummy_small;
+
+        ListNode dummy_big(0);
+        ListNode *big = &dummy_big;
+
+        for (ListNode *cur=head; cur!=NULL; cur=cur->next) {
+            if (cur->val < x) {
+                small->next = cur;
+                small = cur;
+            } else {
+                big->next = cur;
+                big = cur;
+            }
+        }
+        small->next = dummy_big.next;
+        big->next = NULL;
+        return dummy_small.next;
+    }
+
+    ListNode *partition_orig(ListNode *head, int x) {
         vector<int> less;
         vector<int> great;
         ListNode *p = head;

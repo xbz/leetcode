@@ -22,6 +22,9 @@ void print(const ListNode *head)
 class Solution {
 public:
     ListNode *reverseBetween(ListNode *head, int m, int n) {
+        if (head == NULL)
+            return head;
+
         ListNode dummy(0);
         dummy.next = head;
         ListNode *pre = &dummy;
@@ -89,19 +92,20 @@ public:
 int main(int argc, char *argv[])
 {
     Solution s;
-    ListNode *head = new ListNode(10);
-    ListNode *p = head;
-    p->next = new ListNode(50);
-    p = p->next;
-    p->next = new ListNode(70);
-    p = p->next;
-    p->next = new ListNode(3);
-    p = p->next;
-    p->next = new ListNode(200);
+    // ListNode *head = new ListNode(10);
+    ListNode *head = NULL;
+    // ListNode *p = head;
+    // p->next = new ListNode(50);
+    // p = p->next;
+    // p->next = new ListNode(70);
+    // p = p->next;
+    // p->next = new ListNode(3);
+    // p = p->next;
+    // p->next = new ListNode(200);
     print(head);
 
-    int m = 2;
-    int n = 4;
+    int m = 1;
+    int n = 1;
     ListNode *rhead = s.reverseBetween(head, m, n);
     print(rhead);
 
