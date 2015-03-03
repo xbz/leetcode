@@ -6,6 +6,29 @@ using namespace std;
 class Solution {
 public:
     int strStr(char *haystack, char *needle) {
+        if (haystack==NULL || needle==NULL)
+            return -1;
+        if (*needle == '\0')
+            return 0;
+
+        for (char *p=haystack; *p!='\0'; ++p) {
+            char *q = needle;
+            for (; *q!='\0'; q++) {
+                if (p[q-needle] == '\0')
+                    return -1;
+                if (p[q-needle] != *q)
+                    break;
+            }
+            if (*q == '\0')
+                return p-haystack;
+        }
+        return -1;
+    }
+};
+
+class Solution_Orig {
+public:
+    int strStr(char *haystack, char *needle) {
         int pos = 0;
         int limit = string_len(haystack) - string_len(needle);
         while (pos <= limit) {
