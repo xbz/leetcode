@@ -3,7 +3,50 @@
 
 using namespace std;
 
+// template
 class Solution {
+public:
+    vector<int> searchRange(int A[], int n, int target) {
+        int low = 0;
+        int high = n - 1;
+        while (low+1 < high) {
+            int mid = low + (high-low)/2;
+            if (A[mid] == target)
+                high = mid;
+            else if (A[mid] > target)
+                high = mid;
+            else
+                low = mid;
+        }
+
+        vector<int> ret(2, -1);
+        if (A[low] == target)
+            ret[0] = low;
+        else if (A[high] == target)
+            ret[0] = high;
+		else
+            return ret;
+
+        low = 0;
+        high = n - 1;
+        while (low+1 < high) {
+            int mid = low + (high-low)/2;
+            if (A[mid] == target)
+                low = mid;
+            else if (A[mid] > target)
+                high = mid;
+            else
+                low = mid;
+        }
+        if (A[high] == target)
+            ret[1] = high;
+        else if (A[low] == target)
+            ret[1] = low;
+        return ret;
+    }
+};
+
+class Solution_orig {
 public:
     vector<int> searchRange(int A[], int n, int target) {
         int lower = searchLower(A, n, target);
