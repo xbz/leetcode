@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <stack>
 
 using namespace std;
 
@@ -25,12 +26,68 @@ public:
         if (root == NULL)
             return ret;
 
+        stack<TreeNode *> s;
+        s.push(root);
+        while (!s.empty()) {
+            TreeNode *cur = s.top();
+            s.pop();
+            ret.push_back(cur->val);
+            if (cur->right != NULL)
+                s.push(cur->right);
+            if (cur->left != NULL)
+                s.push(cur->left);
+        }
+        return ret;
+    }
+
+    vector<int> preorderTraversal_recursive(TreeNode *root) {
+        vector<int> ret;
+        pre(root, ret);
+		return ret;
+	}
+
+    void pre(TreeNode *root, vector<int>& v) {
+        if (root == NULL)
+			return;
+
+        v.push_back(root->val);
+        pre(root->left, v);
+		pre(root->right, v);
+    }
+
+    vector<int> preorderTraversal_orig(TreeNode *root) {
+        vector<int> ret;
+        if (root == NULL)
+            return ret;
+
         ret.push_back(root->val);
         vector<int> left = preorderTraversal(root->left);
         vector<int> right = preorderTraversal(root->right);
         ret.insert(ret.end(), left.begin(), left.end());
         ret.insert(ret.end(), right.begin(), right.end());
         return ret;
+    }
+
+    vector<int> preorderTraversal_iterative(TreeNode *root) {
+        vector<int> v;
+        if (root == NULL)
+            return v;
+
+        stack<TreeNode *> s;
+        TreeNode *cur = root;
+        while (1) {
+            while (cur) {
+                s.push(cur);
+                v.push_back(cur->val);
+                cur = cur->left;
+            }
+            if (s.empty())
+                break;
+            cur = s.top();
+            s.pop();
+            cur = cur->right;
+        }
+        return v;
     }
 };
 
