@@ -40,6 +40,25 @@ public:
         return ret;
     }
 
+    vector<int> preorderTraversal_template(TreeNode *root) {
+        vector<int> ret;
+        stack<TreeNode *> s;
+        TreeNode *cur = root;
+        while (true) {
+            while (cur != NULL) {
+                s.push(cur);
+                ret.push_back(cur->val);
+                cur = cur->left;
+            }
+            if (s.empty())
+                break;
+            cur = s.top();
+            s.pop();
+            cur = cur->right;
+        }
+        return ret;
+    }
+
     vector<int> preorderTraversal_recursive(TreeNode *root) {
         vector<int> ret;
         pre(root, ret);
