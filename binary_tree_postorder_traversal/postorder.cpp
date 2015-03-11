@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <stack>
+#include <algorithm>
 
 using namespace std;
 
@@ -22,6 +23,26 @@ void print(const vector<int>& v)
 class Solution {
 public:
     vector<int> postorderTraversal(TreeNode *root) {
+        vector<int> ret;
+        if (root == NULL)
+            return ret;
+
+        stack<TreeNode *> s;
+        s.push(root);
+        while (!s.empty()) {
+            TreeNode *cur = s.top();
+            s.pop();
+            ret.push_back(cur->val);
+            if (cur->left != NULL)
+                s.push(cur->left);
+            if (cur->right != NULL)
+                s.push(cur->right);
+        }
+        reverse(ret.begin(), ret.end());
+        return ret;
+    }
+
+    vector<int> postorderTraversal_template(TreeNode *root) {
 		vector<int> ret;
 		stack<TreeNode *> s;
 		TreeNode *cur = root;
