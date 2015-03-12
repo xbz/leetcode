@@ -33,20 +33,53 @@ void print(const vector<vector<int> >& v)
 class Solution {
 public:
     int minimumTotal(vector<vector<int> > &triangle) {
-        int sum = 0;
-        typedef vector<vector<int> > VecVec;
-        for (VecVec::const_iterator it=triangle.begin(); \
-            it!=triangle.end(); ++it)
-            sum += minv(*it);
-        return sum;
+        int n = triangle.size();
+        int f[n];
+        for (int i=0; i<n; i++)
+            f[i] = triangle[n-1][i];
+
+        for (int i=n-2; i>=0; i--) {
+            for (int j=0; j<triangle[i].size(); ++j)
+                f[j] = min(f[j], f[j+1]) + triangle[i][j];
+		}
+        return f[0];
     }
-private:
-    int minv(const vector<int>& v) {
-        int min_value = INT_MAX;
-        for (vector<int>::const_iterator it=v.begin(); it!=v.end(); ++it)
-            min_value = min(min_value, *it);
-        return min_value;
+
+    int minimumTotal_bottomup(vector<vector<int> > &triangle) {
+        int n = triangle.size();
+        int f[n][n];
+        for (int i=0; i<n; i++)
+            f[n-1][i] = triangle[n-1][i];
+
+        for (int i=n-2; i>=0; i--) {
+            for (int j=0; j<triangle[i].size(); ++j)
+                f[i][j] = min(f[i+1][j], f[i+1][j+1]) + triangle[i][j];
+		}
+        return f[0][0];
     }
+
+    int minimumTotal_topdown(vector<vector<int> > &triangle) {
+		if (triangle.size() == 1)
+			return triangle[0][0];
+
+		size_t n = triangle.size();
+		int f[n][n];
+		f[0][0] = triangle[0][0];
+		int min_total = INT_MAX;
+		for (size_t i=1; i<n; ++i) {
+			for (size_t j=0; j<triangle[i].size(); ++j) {
+				if (j == 0)
+					f[i][j] = f[i-1][j] + triangle[i][j];
+				else if (j == i)
+					f[i][j] = f[i-1][j-1] + triangle[i][j];
+				else
+					f[i][j] = min(f[i-1][j-1], f[i-1][j]) + triangle[i][j];
+				if (i+1==n && f[i][j]<min_total)
+					min_total = f[i][j];
+			}
+		}
+		return min_total;
+	}
 };
 
 int main(int argc, char *argv[])
