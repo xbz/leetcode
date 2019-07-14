@@ -12,11 +12,7 @@ func deleteDuplicates(head *ListNode) *ListNode {
     
     p := head
     q := head.Next
-    for {
-        if q == nil {
-            break
-        }
-        
+    for q != nil {
         if p.Val == q.Val {
             p.Next = q.Next
         } else {
